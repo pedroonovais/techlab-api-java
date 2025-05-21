@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import br.com.techlab.techlab_api_java.model.Moto;
+import br.com.techlab.techlab_api_java.model.MotoFilter;
 import br.com.techlab.techlab_api_java.repository.MotoRepository;
+import br.com.techlab.techlab_api_java.specification.MotoSpecification;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -20,9 +22,13 @@ import jakarta.validation.Valid;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
+import org.springframework.data.domain.Sort.Direction;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,10 +48,17 @@ public class MotoContoller {
         description = "Retorna todas as motos cadastradas no sistema, sendo possivel paginar e ordenar",
         tags = {"Moto"}
     )
-    public List<Moto> index() {
+    public Page<Moto> index(MotoFilter filter, 
+        @PageableDefault(size = 10, sort = "date", direction = Direction.DESC) Pageable pageable) {
         log.info("Listando todas as motos");
-        return repository.findAll();
+        return repository.findAll(MotoSpecification.withFilters(filter), pageable);
     }
+
+    // @GetMapping
+    // public Page<Transaction> index(TransactionFilter filter,
+    //         @PageableDefault(size = 10, sort = "date", direction = Direction.DESC) Pageable pageable) {
+    //     return repository.findAll(TransactionSpecification.withFilters(filter), pageable);
+    // }
 
     @PostMapping
     @CacheEvict(allEntries = true)

@@ -2,8 +2,8 @@
 • Spring Data JPA para acesso ao banco de dados - OK
 • Banco de dados H2 ou Oracle - OK
 • CRUD completo para pelo menos duas entidades - OK
-• Relacionamento entre entidade
 • Validação de campos com Bean Validation - OK
+• Relacionamento entre entidade - OK
 • Paginação de resultados
 • Ordenação de resultados
 • Busca por parâmetros
