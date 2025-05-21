@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -50,7 +51,8 @@ public class Moto {
     private String imeiIot;
 
     @Positive(message = "O ID RFID deve ser positivo.")
-    private Long rfId;
+    @OneToOne
+    private RfId rfId;
 
     @NotNull(message = "A data de cadastro é obrigatória.")
     @PastOrPresent(message = "A data de cadastro não pode ser no futuro.")
