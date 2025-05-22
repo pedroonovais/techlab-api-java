@@ -10,12 +10,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import br.com.techlab.techlab_api_java.model.Moto;
-import br.com.techlab.techlab_api_java.model.MotoFilter;
 import br.com.techlab.techlab_api_java.model.Patio;
 import br.com.techlab.techlab_api_java.model.PatioFilter;
 import br.com.techlab.techlab_api_java.repository.PatioRepository;
-import br.com.techlab.techlab_api_java.specification.MotoSpecification;
 import br.com.techlab.techlab_api_java.specification.PatioSpecification;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -23,7 +20,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
