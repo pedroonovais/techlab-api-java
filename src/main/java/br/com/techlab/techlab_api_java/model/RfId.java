@@ -24,9 +24,6 @@ public class RfId {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank
-    private String codigoIdentificacao;
     
     @NotBlank
     private String tipo;

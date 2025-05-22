@@ -57,7 +57,7 @@ public class RfIdController {
         )
     )
     public RfId create(@RequestBody @Valid RfId rfId) {
-        log.info("Cadastrando RFID: " + rfId.getCodigoIdentificacao());
+        log.info("Cadastrando RFID: " + rfId.getId());
         rfId.setDataCadastro(LocalDateTime.now());
         rfId.setDataAtualizacao(LocalDateTime.now());
         return repository.save(rfId);
