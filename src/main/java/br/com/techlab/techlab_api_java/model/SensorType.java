@@ -4,5 +4,5 @@ public enum SensorType {
     TEMPERATURA,
     UMIDADE,
     LUMINOSIDADE,
-    LOCALLIZACAO
+    LOCALIZACAO
 }
