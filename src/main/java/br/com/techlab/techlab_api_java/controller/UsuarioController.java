@@ -40,8 +40,7 @@ public class UsuarioController {
     @Cacheable
     @Operation(
         summary = "Retorna todos os usuários",
-        description = "Retorna todos os usuários cadastrados no sistema, sendo possível paginar e ordenar",
-        tags = {"Usuario"}
+        description = "Retorna todos os usuários cadastrados no sistema, sendo possível paginar e ordenar"
     )
     public List<Usuario> index() {
         log.info("Listando todos os usuários");

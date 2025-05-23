@@ -43,84 +43,74 @@ public class DatabaseSeeder {
     public void init() {
         var now = LocalDateTime.now();
 
-        
         var motos = List.of(
-            new Moto(null, "Honda", "CG 160", "ABC1234", "9C2KC1670FR123456", "KC16E1234567", "356789012345678", null, now.minusDays(5), now),
-            new Moto(null, "Yamaha", "Fazer 250", "XYZ5678", "9C6KE1210E0001234", "KE12E1234567", "356789012345679", null, now.minusDays(10), now),
-            new Moto(null, "Suzuki", "Yes 125", "LMN2345", "9CD11111111111111", "CD11E1234567", "356789012345680", null, now.minusDays(7), now),
-            new Moto(null, "Kawasaki", "Ninja 400", "QWE9876", "JKAEXKG1XKDA12345", "EXKGE1234567", "356789012345681", null, now.minusDays(3), now),
-            new Moto(null, "BMW", "G 310 R", "RTY6543", "MD2JG5003JAA12345", "JG50E1234567", "356789012345682", null, now.minusDays(15), now),
-            new Moto(null, "Dafra", "Apache 150", "UOP3456", "9C6KC1670FR765432", "KC16E7654321", "356789012345683", null, now.minusDays(8), now),
-            new Moto(null, "Shineray", "XY 50", "JKL1122", "LXY12345678901234", "XY50E1234567", "356789012345684", null, now.minusDays(6), now),
-            new Moto(null, "Harley-Davidson", "Iron 883", "GHJ8899", "1HD4LE218GC123456", "HDLEE1234567", "356789012345685", null, now.minusDays(9), now),
-            new Moto(null, "Triumph", "Street Twin", "BNM7788", "SMTTST12345678901", "STTNE1234567", "356789012345686", null, now.minusDays(12), now),
-            new Moto(null, "KTM", "Duke 390", "VFR3344", "MD2JPJ400NC123456", "JPJ40E1234567", "356789012345687", null, now.minusDays(4), now)
+            Moto.builder().marca("Honda").modelo("CG 160").placa("ABC1234").chassi("9C2KC1670FR123456").motor("KC16E1234567").imeiIot("356789012345678").dataCadastro(now.minusDays(5)).dataAtualizacao(now).build(),
+            Moto.builder().marca("Yamaha").modelo("Fazer 250").placa("XYZ5678").chassi("9C6KE1210E0001234").motor("KE12E1234567").imeiIot("356789012345679").dataCadastro(now.minusDays(10)).dataAtualizacao(now).build(),
+            Moto.builder().marca("Suzuki").modelo("Yes 125").placa("LMN2345").chassi("9CD11111111111111").motor("CD11E1234567").imeiIot("356789012345680").dataCadastro(now.minusDays(7)).dataAtualizacao(now).build(),
+            Moto.builder().marca("Kawasaki").modelo("Ninja 400").placa("QWE9876").chassi("JKAEXKG1XKDA12345").motor("EXKGE1234567").imeiIot("356789012345681").dataCadastro(now.minusDays(3)).dataAtualizacao(now).build(),
+            Moto.builder().marca("BMW").modelo("G 310 R").placa("RTY6543").chassi("MD2JG5003JAA12345").motor("JG50E1234567").imeiIot("356789012345682").dataCadastro(now.minusDays(15)).dataAtualizacao(now).build(),
+            Moto.builder().marca("Dafra").modelo("Apache 150").placa("UOP3456").chassi("9C6KC1670FR765432").motor("KC16E7654321").imeiIot("356789012345683").dataCadastro(now.minusDays(8)).dataAtualizacao(now).build(),
+            Moto.builder().marca("Shineray").modelo("XY 50").placa("JKL1122").chassi("LXY12345678901234").motor("XY50E1234567").imeiIot("356789012345684").dataCadastro(now.minusDays(6)).dataAtualizacao(now).build(),
+            Moto.builder().marca("Harley-Davidson").modelo("Iron 883").placa("GHJ8899").chassi("1HD4LE218GC123456").motor("HDLEE1234567").imeiIot("356789012345685").dataCadastro(now.minusDays(9)).dataAtualizacao(now).build(),
+            Moto.builder().marca("Triumph").modelo("Street Twin").placa("BNM7788").chassi("SMTTST12345678901").motor("STTNE1234567").imeiIot("356789012345686").dataCadastro(now.minusDays(12)).dataAtualizacao(now).build(),
+            Moto.builder().marca("KTM").modelo("Duke 390").placa("VFR3344").chassi("MD2JPJ400NC123456").motor("JPJ40E1234567").imeiIot("356789012345687").dataCadastro(now.minusDays(4)).dataAtualizacao(now).build()
         );
-
         motoRepository.saveAll(motos);
 
-
         var patios = List.of(
-            new Patio(null, "Pátio Central", "Centro", 100, 20, "Principal pátio da cidade.", now.minusDays(10), now),
-            new Patio(null, "Pátio Norte", "Zona Norte", 80, 35, "Pátio da região norte com vigilância 24h.", now.minusDays(15), now),
-            new Patio(null, "Pátio Sul", "Zona Sul", 60, 10, "Pátio com acesso por biometria.", now.minusDays(5), now),
-            new Patio(null, "Pátio Oeste", "Zona Oeste", 120, 60, "Grande capacidade e vagas cobertas.", now.minusDays(20), now),
-            new Patio(null, "Pátio Leste", "Zona Leste", 90, 25, "Infraestrutura moderna e iluminação noturna.", now.minusDays(30), now),
-            new Patio(null, "Pátio da Estação", "Estação Central", 50, 5, "Próximo à estação de trem.", now.minusDays(3), now),
-            new Patio(null, "Pátio Aeroporto", "Aeroporto Internacional", 70, 15, "Ideal para motos em trânsito.", now.minusDays(7), now),
-            new Patio(null, "Pátio Industrial", "Distrito Industrial", 150, 100, "Pátio para veículos de carga.", now.minusDays(25), now),
-            new Patio(null, "Pátio Shopping", "Shopping Center", 40, 8, "Pátio com acesso direto ao shopping.", now.minusDays(12), now),
-            new Patio(null, "Pátio Universitário", "Campus Universitário", 60, 30, "Estacionamento exclusivo para alunos.", now.minusDays(18), now)
+            Patio.builder().nome("Pátio Central").localizacao("Centro").capacidadeTotal(100).vagasDisponiveis(20).descricao("Principal pátio da cidade.").dataCadastro(now.minusDays(10)).dataAtualizacao(now).build(),
+            Patio.builder().nome("Pátio Norte").localizacao("Zona Norte").capacidadeTotal(80).vagasDisponiveis(35).descricao("Pátio da região norte com vigilância 24h.").dataCadastro(now.minusDays(15)).dataAtualizacao(now).build(),
+            Patio.builder().nome("Pátio Sul").localizacao("Zona Sul").capacidadeTotal(60).vagasDisponiveis(10).descricao("Pátio com acesso por biometria.").dataCadastro(now.minusDays(5)).dataAtualizacao(now).build(),
+            Patio.builder().nome("Pátio Oeste").localizacao("Zona Oeste").capacidadeTotal(120).vagasDisponiveis(60).descricao("Grande capacidade e vagas cobertas.").dataCadastro(now.minusDays(20)).dataAtualizacao(now).build(),
+            Patio.builder().nome("Pátio Leste").localizacao("Zona Leste").capacidadeTotal(90).vagasDisponiveis(25).descricao("Infraestrutura moderna e iluminação noturna.").dataCadastro(now.minusDays(30)).dataAtualizacao(now).build(),
+            Patio.builder().nome("Pátio da Estação").localizacao("Estação Central").capacidadeTotal(50).vagasDisponiveis(5).descricao("Próximo à estação de trem.").dataCadastro(now.minusDays(3)).dataAtualizacao(now).build(),
+            Patio.builder().nome("Pátio Aeroporto").localizacao("Aeroporto Internacional").capacidadeTotal(70).vagasDisponiveis(15).descricao("Ideal para motos em trânsito.").dataCadastro(now.minusDays(7)).dataAtualizacao(now).build(),
+            Patio.builder().nome("Pátio Industrial").localizacao("Distrito Industrial").capacidadeTotal(150).vagasDisponiveis(100).descricao("Pátio para veículos de carga.").dataCadastro(now.minusDays(25)).dataAtualizacao(now).build(),
+            Patio.builder().nome("Pátio Shopping").localizacao("Shopping Center").capacidadeTotal(40).vagasDisponiveis(8).descricao("Pátio com acesso direto ao shopping.").dataCadastro(now.minusDays(12)).dataAtualizacao(now).build(),
+            Patio.builder().nome("Pátio Universitário").localizacao("Campus Universitário").capacidadeTotal(60).vagasDisponiveis(30).descricao("Estacionamento exclusivo para alunos.").dataCadastro(now.minusDays(18)).dataAtualizacao(now).build()
         );
-
         patioRepository.saveAll(patios);
 
-
         var rfIds = List.of(
-            new RfId(null, "Leitor Fixo", "Entrada principal", StatusType.ATIVO, now.minusDays(10), now),
-            new RfId(null, "Leitor Móvel", "Bloco A", StatusType.ATIVO, now.minusDays(12), now),
-            new RfId(null, "Antena", "Ponto de Controle 1", StatusType.INATIVO, now.minusDays(20), now),
-            new RfId(null, "Leitor Fixo", "Saída lateral", StatusType.ATIVO, now.minusDays(5), now),
-            new RfId(null, "Leitor Móvel", "Bloco B", StatusType.ATIVO, now.minusDays(7), now),
-            new RfId(null, "Antena", "Zona de Estacionamento", StatusType.ATIVO, now.minusDays(15), now),
-            new RfId(null, "Leitor Fixo", "Corredor Central", StatusType.INATIVO, now.minusDays(9), now),
-            new RfId(null, "Leitor Móvel", "Bloco C", StatusType.ATIVO, now.minusDays(11), now),
-            new RfId(null, "Antena", "Portão de Serviço", StatusType.INATIVO, now.minusDays(8), now),
-            new RfId(null, "Leitor Fixo", "Portão Principal", StatusType.ATIVO, now.minusDays(6), now)
+            RfId.builder().tipo("Leitor Fixo").localizacaoFisica("Entrada principal").status(StatusType.ATIVO).dataCadastro(now.minusDays(10)).dataAtualizacao(now).build(),
+            RfId.builder().tipo("Leitor Móvel").localizacaoFisica("Bloco A").status(StatusType.ATIVO).dataCadastro(now.minusDays(12)).dataAtualizacao(now).build(),
+            RfId.builder().tipo("Antena").localizacaoFisica("Ponto de Controle 1").status(StatusType.INATIVO).dataCadastro(now.minusDays(20)).dataAtualizacao(now).build(),
+            RfId.builder().tipo("Leitor Fixo").localizacaoFisica("Saída lateral").status(StatusType.ATIVO).dataCadastro(now.minusDays(5)).dataAtualizacao(now).build(),
+            RfId.builder().tipo("Leitor Móvel").localizacaoFisica("Bloco B").status(StatusType.ATIVO).dataCadastro(now.minusDays(7)).dataAtualizacao(now).build(),
+            RfId.builder().tipo("Antena").localizacaoFisica("Zona de Estacionamento").status(StatusType.ATIVO).dataCadastro(now.minusDays(15)).dataAtualizacao(now).build(),
+            RfId.builder().tipo("Leitor Fixo").localizacaoFisica("Corredor Central").status(StatusType.INATIVO).dataCadastro(now.minusDays(9)).dataAtualizacao(now).build(),
+            RfId.builder().tipo("Leitor Móvel").localizacaoFisica("Bloco C").status(StatusType.ATIVO).dataCadastro(now.minusDays(11)).dataAtualizacao(now).build(),
+            RfId.builder().tipo("Antena").localizacaoFisica("Portão de Serviço").status(StatusType.INATIVO).dataCadastro(now.minusDays(8)).dataAtualizacao(now).build(),
+            RfId.builder().tipo("Leitor Fixo").localizacaoFisica("Portão Principal").status(StatusType.ATIVO).dataCadastro(now.minusDays(6)).dataAtualizacao(now).build()
         );
-
         rfIdRepository.saveAll(rfIds);
 
-
         var sensores = List.of(
-            new Sensor(null, "SEN001", SensorType.LOCALIZACAO, "Entrada Principal", StatusType.ATIVO, now.minusDays(10), now),
-            new Sensor(null, "SEN002", SensorType.LOCALIZACAO, "Bloco A - Corredor 1", StatusType.ATIVO, now.minusDays(9), now),
-            new Sensor(null, "SEN003", SensorType.LOCALIZACAO, "Estacionamento Setor 1", StatusType.INATIVO, now.minusDays(8), now),
-            new Sensor(null, "SEN004", SensorType.LOCALIZACAO, "Saída Lateral", StatusType.ATIVO, now.minusDays(7), now),
-            new Sensor(null, "SEN005", SensorType.LOCALIZACAO, "Bloco B - Entrada", StatusType.ATIVO, now.minusDays(6), now),
-            new Sensor(null, "SEN006", SensorType.LOCALIZACAO, "Zona de Carga", StatusType.ATIVO, now.minusDays(5), now),
-            new Sensor(null, "SEN007", SensorType.LOCALIZACAO, "Corredor Central", StatusType.INATIVO, now.minusDays(4), now),
-            new Sensor(null, "SEN008", SensorType.LOCALIZACAO, "Bloco C - Estacionamento", StatusType.ATIVO, now.minusDays(3), now),
-            new Sensor(null, "SEN009", SensorType.LOCALIZACAO, "Portão de Serviço", StatusType.INATIVO, now.minusDays(2), now),
-            new Sensor(null, "SEN010", SensorType.LOCALIZACAO, "Portão Principal", StatusType.ATIVO, now.minusDays(1), now)
+            Sensor.builder().codigoIdentificacao("SEN001").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Entrada Principal").status(StatusType.ATIVO).dataCadastro(now.minusDays(10)).dataAtualizacao(now).build(),
+            Sensor.builder().codigoIdentificacao("SEN002").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Bloco A - Corredor 1").status(StatusType.ATIVO).dataCadastro(now.minusDays(9)).dataAtualizacao(now).build(),
+            Sensor.builder().codigoIdentificacao("SEN003").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Estacionamento Setor 1").status(StatusType.INATIVO).dataCadastro(now.minusDays(8)).dataAtualizacao(now).build(),
+            Sensor.builder().codigoIdentificacao("SEN004").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Saída Lateral").status(StatusType.ATIVO).dataCadastro(now.minusDays(7)).dataAtualizacao(now).build(),
+            Sensor.builder().codigoIdentificacao("SEN005").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Bloco B - Entrada").status(StatusType.ATIVO).dataCadastro(now.minusDays(6)).dataAtualizacao(now).build(),
+            Sensor.builder().codigoIdentificacao("SEN006").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Zona de Carga").status(StatusType.ATIVO).dataCadastro(now.minusDays(5)).dataAtualizacao(now).build(),
+            Sensor.builder().codigoIdentificacao("SEN007").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Corredor Central").status(StatusType.INATIVO).dataCadastro(now.minusDays(4)).dataAtualizacao(now).build(),
+            Sensor.builder().codigoIdentificacao("SEN008").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Bloco C - Estacionamento").status(StatusType.ATIVO).dataCadastro(now.minusDays(3)).dataAtualizacao(now).build(),
+            Sensor.builder().codigoIdentificacao("SEN009").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Portão de Serviço").status(StatusType.INATIVO).dataCadastro(now.minusDays(2)).dataAtualizacao(now).build(),
+            Sensor.builder().codigoIdentificacao("SEN010").tipo(SensorType.LOCALIZACAO).localizacaoFisica("Portão Principal").status(StatusType.ATIVO).dataCadastro(now.minusDays(1)).dataAtualizacao(now).build()
         );
-
         sensorRepository.saveAll(sensores);
 
-
         var usuarios = List.of(
-            new Usuario(null, "João Silva", "joao.silva@email.com", "senha123", "12345678909", StatusType.ATIVO, "ADMIN", AreaType.OPERACIONAL, now.minusDays(10), now),
-            new Usuario(null, "Maria Oliveira", "maria.oliveira@email.com", "senha456", "98765432100", StatusType.ATIVO, "SUPORTE", AreaType.OPERACIONAL, now.minusDays(9), now),
-            new Usuario(null, "Carlos Souza", "carlos.souza@email.com", "senha789", "45678912312", StatusType.ATIVO, "USUARIO", AreaType.OPERACIONAL, now.minusDays(8), now),
-            new Usuario(null, "Ana Lima", "ana.lima@email.com", "senha321", "32165498700", StatusType.INATIVO, "USUARIO", AreaType.OPERACIONAL, now.minusDays(7), now),
-            new Usuario(null, "Fernanda Costa", "fernanda.costa@email.com", "senha654", "14725836900", StatusType.ATIVO, "SUPORTE", AreaType.OPERACIONAL, now.minusDays(6), now),
-            new Usuario(null, "Roberto Nunes", "roberto.nunes@email.com", "senha987", "25836914700", StatusType.INATIVO, "USUARIO", AreaType.OPERACIONAL, now.minusDays(5), now),
-            new Usuario(null, "Juliana Martins", "juliana.martins@email.com", "senha159", "96385274100", StatusType.ATIVO, "ADMIN", AreaType.OPERACIONAL, now.minusDays(4), now),
-            new Usuario(null, "Paulo Henrique", "paulo.henrique@email.com", "senha753", "74185296300", StatusType.ATIVO, "USUARIO", AreaType.OPERACIONAL, now.minusDays(3), now),
-            new Usuario(null, "Luciana Ferreira", "luciana.ferreira@email.com", "senha852", "36925814700", StatusType.ATIVO, "SUPORTE", AreaType.OPERACIONAL, now.minusDays(2), now),
-            new Usuario(null, "Ricardo Gomes", "ricardo.gomes@email.com", "senha456", "15935725800", StatusType.ATIVO, "USUARIO", AreaType.OPERACIONAL, now.minusDays(1), now)
+            Usuario.builder().id(null).nome("João Silva").email("joao.silva@email.com").senha("senha123").cpf("55018966050").status(StatusType.ATIVO).perfil("ADMIN").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(10)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Maria Oliveira").email("maria.oliveira@email.com").senha("senha456").cpf("09576609011").status(StatusType.ATIVO).perfil("SUPORTE").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(9)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Carlos Souza").email("carlos.souza@email.com").senha("senha789").cpf("27487889076").status(StatusType.ATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(8)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Ana Lima").email("ana.lima@email.com").senha("senha321").cpf("67282083053").status(StatusType.INATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(7)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Fernanda Costa").email("fernanda.costa@email.com").senha("senha654").cpf("94323188005").status(StatusType.ATIVO).perfil("SUPORTE").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(6)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Roberto Nunes").email("roberto.nunes@email.com").senha("senha987").cpf("62749826047").status(StatusType.INATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(5)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Juliana Martins").email("juliana.martins@email.com").senha("senha159").cpf("54964102076").status(StatusType.ATIVO).perfil("ADMIN").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(4)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Paulo Henrique").email("paulo.henrique@email.com").senha("senha753").cpf("42783173018").status(StatusType.ATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(3)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Luciana Ferreira").email("luciana.ferreira@email.com").senha("senha852").cpf("74918657044").status(StatusType.ATIVO).perfil("SUPORTE").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(2)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Ricardo Gomes").email("ricardo.gomes@email.com").senha("senha456").cpf("25880036057").status(StatusType.ATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(1)).dataAtualizacao(now).build()
         );
-
         usuarioRepository.saveAll(usuarios);
     }
 }

@@ -45,8 +45,7 @@ public class PatioController {
     @Cacheable
     @Operation(
         summary = "Retorna todos os patios",
-        description = "Retorna todos os patios cadastrados no sistema, sendo possível paginar e ordenar",
-        tags = {"Patio"}
+        description = "Retorna todos os patios cadastrados no sistema, sendo possível paginar e ordenar"
     )
     public Page<Patio> index(PatioFilter filter, @PageableDefault(size = 10, sort = "nome", direction = Direction.ASC) Pageable pageable) {
         log.info("Listando todos os patios");

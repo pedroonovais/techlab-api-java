@@ -43,8 +43,7 @@ public class MotoContoller {
     @Cacheable
     @Operation(
         summary = "Retorna todas as motos",
-        description = "Retorna todas as motos cadastradas no sistema, sendo possivel paginar e ordenar",
-        tags = {"Moto"}
+        description = "Retorna todas as motos cadastradas no sistema, sendo possivel paginar e ordenar"
     )
     public Page<Moto> index(MotoFilter filter, @PageableDefault(size = 10, sort = "placa", direction = Direction.ASC) Pageable pageable) {
         log.info("Listando todas as motos");

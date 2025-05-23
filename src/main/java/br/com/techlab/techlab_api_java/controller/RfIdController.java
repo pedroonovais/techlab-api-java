@@ -40,8 +40,7 @@ public class RfIdController {
     @Cacheable
     @Operation(
         summary = "Retorna todos os RFIDs",
-        description = "Retorna todos os RFIDs cadastrados no sistema, sendo possível paginar e ordenar",
-        tags = {"RfId"}
+        description = "Retorna todos os RFIDs cadastrados no sistema, sendo possível paginar e ordenar"
     )
     public List<RfId> index() {
         log.info("Listando todos os RFIDs");

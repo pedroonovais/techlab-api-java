@@ -42,14 +42,12 @@ public class Usuario {
 
     @CPF()
     public String cpf;
-
-    @NotBlank()    
+ 
     private StatusType status;
 
     @NotBlank(message = "Perfil é obrigatório.")
     private String perfil;
 
-    @NotBlank()
     private AreaType area;
 
     @NotNull(message = "A data de cadastro é obrigatória.")

@@ -11,7 +11,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -50,7 +49,6 @@ public class Moto {
     @NotBlank(message = "IMEI IoT é obrigatório.")
     private String imeiIot;
 
-    @Positive(message = "O ID RFID deve ser positivo.")
     @OneToOne
     private RfId rfId;
 

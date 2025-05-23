@@ -40,8 +40,7 @@ public class SensorController {
     @Cacheable
     @Operation(
         summary = "Retorna todos os sensores",
-        description = "Retorna todos os sensores cadastrados no sistema, sendo possível paginar e ordenar",
-        tags = {"Sensor"}
+        description = "Retorna todos os sensores cadastrados no sistema, sendo possível paginar e ordenar"
     )
     public List<Sensor> index() {
         log.info("Listando todos os sensores");

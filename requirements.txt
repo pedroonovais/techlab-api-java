@@ -8,6 +8,6 @@
 • Ordenação de resultados - OK
 • Busca por parâmetros - OK
 • Cache para otimizar requisições
-• Boas práticas de design REST
+• Boas práticas de design REST - OK
 • Tratamento centralizado de erros
 • Utilização de DTO

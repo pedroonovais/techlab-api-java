@@ -31,7 +31,6 @@ public class RfId {
     @NotBlank
     private String localizacaoFisica;
     
-    @NotBlank
     private StatusType status;
     
     @NotNull(message = "A data de cadastro é obrigatória.")

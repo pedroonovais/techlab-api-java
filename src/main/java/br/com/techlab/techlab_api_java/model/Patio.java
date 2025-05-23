@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
@@ -35,11 +36,10 @@ public class Patio {
     @Size(min = 3, message = "A localização deve ter pelo menos 3 caracteres.")
     private String localizacao;
 
-    @NotBlank(message = "Capacidade é obrigatória.")
     @Positive(message = "A capacidade deve ser positiva.")
     public int capacidadeTotal;
 
-    @NotBlank(message = "Vagas disponíveis é obrigatória.")
+    @Min(1)
     @Positive(message = "As vagas disponíveis devem ser positivas.")
     public int vagasDisponiveis;
 

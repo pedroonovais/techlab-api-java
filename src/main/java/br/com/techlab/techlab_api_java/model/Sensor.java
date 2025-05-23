@@ -28,13 +28,11 @@ public class Sensor {
     @NotBlank()
     private String codigoIdentificacao;
 
-    @NotBlank()
     private SensorType tipo;
 
     @NotBlank()
     private String localizacaoFisica;
 
-    @NotBlank()
     private StatusType status;
 
     @NotNull(message = "A data de cadastro é obrigatória.")
