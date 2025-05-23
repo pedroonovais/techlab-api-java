@@ -8,7 +8,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
@@ -46,11 +45,9 @@ public class Patio {
     @NotBlank(message = "Descricão é obrigatória.")
     public String descricao;
 
-    @NotNull(message = "A data de cadastro é obrigatória.")
     @PastOrPresent(message = "A data de cadastro não pode ser no futuro.")
     private LocalDateTime dataCadastro;
 
-    @NotNull(message = "A data de atualização é obrigatória.")
     @PastOrPresent(message = "A data de atualização não pode ser no futuro.")
     private LocalDateTime dataAtualizacao;
 }

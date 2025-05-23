@@ -1,0 +1,624 @@
+{
+	"info": {
+		"_postman_id": "a5b8a879-8741-42a8-96ab-fe52e84c35c2",
+		"name": "Tech Lab Api Java",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20348320"
+	},
+	"item": [
+		{
+			"name": "Moto",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/moto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"moto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/moto/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"moto",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/moto/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"moto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"marca\": \"string\",\r\n  \"modelo\": \"string\",\r\n  \"placa\": \"HSI2003\",\r\n  \"chassi\": \"string\",\r\n  \"motor\": \"string\",\r\n  \"imeiIot\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/moto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"moto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"marca\": \"string13\",\r\n  \"modelo\": \"string\",\r\n  \"placa\": \"HSI2003\",\r\n  \"chassi\": \"string\",\r\n  \"motor\": \"string\",\r\n  \"imeiIot\": \"string\",\r\n  \"rfId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/moto/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"moto",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/usuario/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"João Silva\",\r\n  \"email\": \"joao.silva@example.com\",\r\n  \"senha\": \"senhaSegura123!\",\r\n  \"cpf\": \"43264531844\",\r\n  \"status\": \"ATIVO\",\r\n  \"perfil\": \"ADMIN\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"João Silva Atualizado\",\r\n  \"email\": \"joao.silva@example.com\",\r\n  \"senha\": \"senhaSegura123!\",\r\n  \"cpf\": \"43264531844\",\r\n  \"status\": \"ATIVO\",\r\n  \"perfil\": \"ADMIN\"\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuario/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"João Silva Atualizado\",\r\n  \"email\": \"joao.silva@example.com\",\r\n  \"senha\": \"senhaSegura123!\",\r\n  \"cpf\": \"43264531844\",\r\n  \"status\": \"ATIVO\",\r\n  \"perfil\": \"ADMIN\"\r\n}\r\n\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/usuario/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RfId",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"marca\": \"string\",\r\n  \"modelo\": \"string\",\r\n  \"placa\": \"HSI2003\",\r\n  \"chassi\": \"string\",\r\n  \"motor\": \"string\",\r\n  \"imeiIot\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/rfid",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rfid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipo\": \"string\",\r\n  \"localizacaoFisica\": \"string\",\r\n  \"status\": \"ATIVO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/rfid",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rfid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rfid/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rfid",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/rfid/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rfid",
+								"11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipo\": \"string2\",\r\n  \"localizacaoFisica\": \"string\",\r\n  \"status\": \"ATIVO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/rfid/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rfid",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sensor",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sensor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sensor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sensor/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sensor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sensor/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sensor",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codigoIdentificacao\": \"string\",\r\n  \"tipo\": \"TEMPERATURA\",\r\n  \"localizacaoFisica\": \"string\",\r\n  \"status\": \"ATIVO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/sensor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sensor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codigoIdentificacao\": \"string2\",\r\n  \"tipo\": \"TEMPERATURA\",\r\n  \"localizacaoFisica\": \"string\",\r\n  \"status\": \"ATIVO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/sensor/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sensor",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patio",
+			"item": [
+				{
+					"name": "Get All",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codigoIdentificacao\": \"string\",\r\n  \"tipo\": \"TEMPERATURA\",\r\n  \"localizacaoFisica\": \"string\",\r\n  \"status\": \"ATIVO\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/patio",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"string\",\r\n  \"localizacao\": \"string\",\r\n  \"capacidadeTotal\": 1073741824,\r\n  \"vagasDisponiveis\": 12,\r\n  \"descricao\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/patio",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codigoIdentificacao\": \"string\",\r\n  \"tipo\": \"TEMPERATURA\",\r\n  \"localizacaoFisica\": \"string\",\r\n  \"status\": \"ATIVO\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/patio/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patio",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"codigoIdentificacao\": \"string\",\r\n  \"tipo\": \"TEMPERATURA\",\r\n  \"localizacaoFisica\": \"string\",\r\n  \"status\": \"ATIVO\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/patio/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patio",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"string22222\",\r\n  \"localizacao\": \"string\",\r\n  \"capacidadeTotal\": 1073741824,\r\n  \"vagasDisponiveis\": 12,\r\n  \"descricao\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/patio/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"patio",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
