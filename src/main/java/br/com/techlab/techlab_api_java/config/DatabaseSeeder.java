@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
-import br.com.techlab.techlab_api_java.model.AreaType;
 import br.com.techlab.techlab_api_java.model.Moto;
 import br.com.techlab.techlab_api_java.model.Patio;
 import br.com.techlab.techlab_api_java.model.RfId;

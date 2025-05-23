@@ -15,7 +15,6 @@ import br.com.techlab.techlab_api_java.model.Usuario;
 import br.com.techlab.techlab_api_java.repository.UsuarioRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.RequestBody;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 
 import java.time.LocalDateTime;
@@ -63,6 +62,7 @@ public class UsuarioController {
             .status(dto.status())
             .perfil(dto.perfil())
             .dataCadastro(LocalDateTime.now())
+            .dataAtualizacao(LocalDateTime.now())
             .build();
 
         return repository.save(usuario);

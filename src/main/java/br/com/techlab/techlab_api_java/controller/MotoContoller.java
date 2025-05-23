@@ -10,14 +10,19 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import br.com.techlab.techlab_api_java.dto.MotoRequest;
 import br.com.techlab.techlab_api_java.model.Moto;
 import br.com.techlab.techlab_api_java.model.MotoFilter;
+import br.com.techlab.techlab_api_java.model.RfId;
 import br.com.techlab.techlab_api_java.repository.MotoRepository;
+import br.com.techlab.techlab_api_java.repository.RfIdRepository;
 import br.com.techlab.techlab_api_java.specification.MotoSpecification;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
+
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -39,6 +44,9 @@ public class MotoContoller {
     @Autowired
     private MotoRepository repository;
 
+    @Autowired
+    private RfIdRepository rfIdRepository;
+
     @GetMapping
     @Cacheable
     @Operation(
@@ -58,8 +66,20 @@ public class MotoContoller {
             responseCode = "400"
         )
     )
-    public Moto create(@RequestBody @Valid Moto moto) {
-        log.info("Cadastrando moto " + moto.getPlaca());
+    public Moto create(@RequestBody @Valid MotoRequest request) {
+        log.info("Cadastrando moto " + request.placa());
+
+        Moto moto = Moto.builder()
+            .marca(request.marca())
+            .modelo(request.modelo())
+            .placa(request.placa())
+            .chassi(request.chassi())
+            .motor(request.motor())
+            .imeiIot(request.imeiIot())
+            .dataCadastro(LocalDateTime.now())
+            .dataAtualizacao(LocalDateTime.now())
+            .build();
+
         return repository.save(moto);
     }
 
@@ -79,11 +99,25 @@ public class MotoContoller {
 
     @PutMapping("{id}")
     @CacheEvict(allEntries = true)
-    public Moto update(@PathVariable Long id, @RequestBody Moto moto) {
-        log.info("Atualizando moto " + id + " " + moto);	
+    public Moto update(@PathVariable Long id, @RequestBody @Valid MotoRequest request) {
+        log.info("Atualizando moto " + id + " " + request.placa());	
 
-        getMoto(id);
-        moto.setId(id);
+        var olderMoto = getMoto(id);
+
+        var rfId = geRfId(request.rfId());
+
+        Moto moto = Moto.builder()
+            .marca(request.marca())
+            .modelo(request.modelo())
+            .placa(request.placa())
+            .chassi(request.chassi())
+            .motor(request.motor())
+            .imeiIot(request.imeiIot())
+            .rfId(rfId)
+            .dataCadastro(olderMoto.getDataCadastro())
+            .dataAtualizacao(LocalDateTime.now())
+            .build();
+ 
         return repository.save(moto);
     }
 
@@ -92,6 +126,14 @@ public class MotoContoller {
             .findById(id)
             .orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Moto " + id + " não encontrada")
+            );
+    }
+
+    private RfId geRfId(Long id){
+        return rfIdRepository
+            .findById(id)
+            .orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RfId " + id + " não encontrado")
             );
     }
 }
