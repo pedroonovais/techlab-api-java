@@ -29,7 +29,6 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Nome é obrigatório.")
     @Size(min = 3, message = "O nome deve ter pelo menos 3 caracteres.")
     private String nome;
 
@@ -41,20 +40,16 @@ public class Usuario {
     private String senha;
 
     @CPF()
-    public String cpf;
+    private String cpf;
  
     private StatusType status;
 
-    @NotBlank(message = "Perfil é obrigatório.")
+    @NotNull(message = "Perfil é obrigatório.")
     private String perfil;
 
-    private AreaType area;
-
-    @NotNull(message = "A data de cadastro é obrigatória.")
     @PastOrPresent(message = "A data de cadastro não pode ser no futuro.")
     private LocalDateTime dataCadastro;
     
-    @NotNull(message = "A data de atualização é obrigatória.")
     @PastOrPresent(message = "A data de atualização não pode ser no futuro.")
     private LocalDateTime dataAtualizacao;
 

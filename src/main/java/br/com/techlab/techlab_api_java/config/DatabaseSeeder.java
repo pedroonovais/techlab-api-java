@@ -100,16 +100,16 @@ public class DatabaseSeeder {
         sensorRepository.saveAll(sensores);
 
         var usuarios = List.of(
-            Usuario.builder().id(null).nome("João Silva").email("joao.silva@email.com").senha("senha123").cpf("55018966050").status(StatusType.ATIVO).perfil("ADMIN").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(10)).dataAtualizacao(now).build(),
-            Usuario.builder().id(null).nome("Maria Oliveira").email("maria.oliveira@email.com").senha("senha456").cpf("09576609011").status(StatusType.ATIVO).perfil("SUPORTE").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(9)).dataAtualizacao(now).build(),
-            Usuario.builder().id(null).nome("Carlos Souza").email("carlos.souza@email.com").senha("senha789").cpf("27487889076").status(StatusType.ATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(8)).dataAtualizacao(now).build(),
-            Usuario.builder().id(null).nome("Ana Lima").email("ana.lima@email.com").senha("senha321").cpf("67282083053").status(StatusType.INATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(7)).dataAtualizacao(now).build(),
-            Usuario.builder().id(null).nome("Fernanda Costa").email("fernanda.costa@email.com").senha("senha654").cpf("94323188005").status(StatusType.ATIVO).perfil("SUPORTE").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(6)).dataAtualizacao(now).build(),
-            Usuario.builder().id(null).nome("Roberto Nunes").email("roberto.nunes@email.com").senha("senha987").cpf("62749826047").status(StatusType.INATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(5)).dataAtualizacao(now).build(),
-            Usuario.builder().id(null).nome("Juliana Martins").email("juliana.martins@email.com").senha("senha159").cpf("54964102076").status(StatusType.ATIVO).perfil("ADMIN").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(4)).dataAtualizacao(now).build(),
-            Usuario.builder().id(null).nome("Paulo Henrique").email("paulo.henrique@email.com").senha("senha753").cpf("42783173018").status(StatusType.ATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(3)).dataAtualizacao(now).build(),
-            Usuario.builder().id(null).nome("Luciana Ferreira").email("luciana.ferreira@email.com").senha("senha852").cpf("74918657044").status(StatusType.ATIVO).perfil("SUPORTE").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(2)).dataAtualizacao(now).build(),
-            Usuario.builder().id(null).nome("Ricardo Gomes").email("ricardo.gomes@email.com").senha("senha456").cpf("25880036057").status(StatusType.ATIVO).perfil("USUARIO").area(AreaType.OPERACIONAL).dataCadastro(now.minusDays(1)).dataAtualizacao(now).build()
+            Usuario.builder().id(null).nome("João Silva").email("joao.silva@email.com").senha("senha123").cpf("55018966050").status(StatusType.ATIVO).perfil("ADMIN").dataCadastro(now.minusDays(10)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Maria Oliveira").email("maria.oliveira@email.com").senha("senha456").cpf("09576609011").status(StatusType.ATIVO).perfil("SUPORTE").dataCadastro(now.minusDays(9)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Carlos Souza").email("carlos.souza@email.com").senha("senha789").cpf("27487889076").status(StatusType.ATIVO).perfil("USUARIO").dataCadastro(now.minusDays(8)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Ana Lima").email("ana.lima@email.com").senha("senha321").cpf("67282083053").status(StatusType.INATIVO).perfil("USUARIO").dataCadastro(now.minusDays(7)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Fernanda Costa").email("fernanda.costa@email.com").senha("senha654").cpf("94323188005").status(StatusType.ATIVO).perfil("SUPORTE").dataCadastro(now.minusDays(6)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Roberto Nunes").email("roberto.nunes@email.com").senha("senha987").cpf("62749826047").status(StatusType.INATIVO).perfil("USUARIO").dataCadastro(now.minusDays(5)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Juliana Martins").email("juliana.martins@email.com").senha("senha159").cpf("54964102076").status(StatusType.ATIVO).perfil("ADMIN").dataCadastro(now.minusDays(4)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Paulo Henrique").email("paulo.henrique@email.com").senha("senha753").cpf("42783173018").status(StatusType.ATIVO).perfil("USUARIO").dataCadastro(now.minusDays(3)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Luciana Ferreira").email("luciana.ferreira@email.com").senha("senha852").cpf("74918657044").status(StatusType.ATIVO).perfil("SUPORTE").dataCadastro(now.minusDays(2)).dataAtualizacao(now).build(),
+            Usuario.builder().id(null).nome("Ricardo Gomes").email("ricardo.gomes@email.com").senha("senha456").cpf("25880036057").status(StatusType.ATIVO).perfil("USUARIO").dataCadastro(now.minusDays(1)).dataAtualizacao(now).build()
         );
         usuarioRepository.saveAll(usuarios);
     }

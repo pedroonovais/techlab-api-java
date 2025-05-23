@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import br.com.techlab.techlab_api_java.dto.UsuarioRequest;
 import br.com.techlab.techlab_api_java.model.Usuario;
 import br.com.techlab.techlab_api_java.repository.UsuarioRepository;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 
@@ -48,20 +49,25 @@ public class UsuarioController {
     }
 
     @PostMapping
-    @CacheEvict(allEntries = true)
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(
-        responses = @ApiResponse(
-            responseCode = "400"
-        )
-    )
-    public Usuario create(@RequestBody @Valid Usuario usuario) {
-        log.info("Cadastrando usuário: " + usuario.getNome());
-        usuario.setDataCadastro(LocalDateTime.now());
-        usuario.setDataAtualizacao(LocalDateTime.now());
+    @CacheEvict(allEntries = true)
+    public Usuario create(@RequestBody @Valid UsuarioRequest dto) {
+        System.out.println( dto);
+        log.info("Cadastrando usuário: " + dto.nome());
+
+        Usuario usuario = Usuario.builder()
+            .nome(dto.nome())
+            .email(dto.email())
+            .senha(dto.senha())
+            .cpf(dto.cpf())
+            .status(dto.status())
+            .perfil(dto.perfil())
+            .dataCadastro(LocalDateTime.now())
+            .build();
+
         return repository.save(usuario);
     }
-
+    
     @GetMapping("{id}")
     public Usuario get(@PathVariable Long id) {
         log.info("Buscando usuário: " + id);
@@ -78,7 +84,7 @@ public class UsuarioController {
 
     @PutMapping("{id}")
     @CacheEvict(allEntries = true)
-    public Usuario update(@PathVariable Long id, @RequestBody Usuario usuario) {
+    public Usuario update(@PathVariable Long id, @RequestBody @Valid Usuario usuario) {
         log.info("Atualizando usuário " + id + " " + usuario);
 
         getUsuario(id);
