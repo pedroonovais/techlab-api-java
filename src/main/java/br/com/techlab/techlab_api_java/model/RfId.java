@@ -33,11 +33,9 @@ public class RfId {
     
     private StatusType status;
     
-    @NotNull(message = "A data de cadastro é obrigatória.")
     @PastOrPresent(message = "A data de cadastro não pode ser no futuro.")
     private LocalDateTime dataCadastro;
     
-    @NotNull(message = "A data de atualização é obrigatória.")
     @PastOrPresent(message = "A data de atualização não pode ser no futuro.")
     private LocalDateTime dataAtualizacao;
 }

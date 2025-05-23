@@ -13,7 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import br.com.techlab.techlab_api_java.model.RfId;
 import br.com.techlab.techlab_api_java.repository.RfIdRepository;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import org.springframework.web.bind.annotation.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 
