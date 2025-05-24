@@ -7,7 +7,7 @@
 • Paginação de resultados - OK
 • Ordenação de resultados - OK
 • Busca por parâmetros - OK
-• Cache para otimizar requisições
 • Boas práticas de design REST - OK
+• Cache para otimizar requisições
 • Tratamento centralizado de erros
 • Utilização de DTO

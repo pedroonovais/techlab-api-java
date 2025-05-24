@@ -37,7 +37,7 @@ public class RfIdController {
     private RfIdRepository repository;
 
     @GetMapping
-    @Cacheable
+    @Cacheable(value = "rfid")
     @Operation(
         summary = "Retorna todos os RFIDs",
         description = "Retorna todos os RFIDs cadastrados no sistema, sendo possível paginar e ordenar"
@@ -48,7 +48,7 @@ public class RfIdController {
     }
 
     @PostMapping
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "rfid")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(
         responses = @ApiResponse(
@@ -69,7 +69,7 @@ public class RfIdController {
     }
 
     @DeleteMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "rfid")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void destroy(@PathVariable Long id) {
         log.info("Apagando RFID " + id);
@@ -77,7 +77,7 @@ public class RfIdController {
     }
 
     @PutMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "rfid")
     public RfId update(@PathVariable Long id, @RequestBody RfId rfId) {
         log.info("Atualizando RFID " + id + " " + rfId);
 

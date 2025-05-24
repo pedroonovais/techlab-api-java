@@ -48,7 +48,7 @@ public class MotoContoller {
     private RfIdRepository rfIdRepository;
 
     @GetMapping
-    @Cacheable
+    @Cacheable(value = "moto")
     @Operation(
         summary = "Retorna todas as motos",
         description = "Retorna todas as motos cadastradas no sistema, sendo possivel paginar e ordenar"
@@ -59,7 +59,7 @@ public class MotoContoller {
     }
 
     @PostMapping
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "moto")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(
         responses = @ApiResponse(
@@ -90,7 +90,7 @@ public class MotoContoller {
     }
 
     @DeleteMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "moto")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void destroy(@PathVariable Long id) {
         log.info("Apagando moto " + id);
@@ -98,7 +98,7 @@ public class MotoContoller {
     }
 
     @PutMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "moto")
     public Moto update(@PathVariable Long id, @RequestBody @Valid MotoRequest request) {
         log.info("Atualizando moto " + id + " " + request.placa());	
 

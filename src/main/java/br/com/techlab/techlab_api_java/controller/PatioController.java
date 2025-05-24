@@ -42,7 +42,7 @@ public class PatioController {
     private PatioRepository repository;
 
     @GetMapping
-    @Cacheable
+    @Cacheable(value = "patio")
     @Operation(
         summary = "Retorna todos os patios",
         description = "Retorna todos os patios cadastrados no sistema, sendo possível paginar e ordenar"
@@ -53,7 +53,7 @@ public class PatioController {
     }
 
     @PostMapping
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "patio")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(
         responses = @ApiResponse(
@@ -74,7 +74,7 @@ public class PatioController {
     }
 
     @DeleteMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "patio")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void destroy(@PathVariable Long id) {
         log.info("Apagando patio " + id);
@@ -82,7 +82,7 @@ public class PatioController {
     }
 
     @PutMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "patio")
     public Patio update(@PathVariable Long id, @RequestBody Patio patio) {
         log.info("Atualizando patio " + id + " " + patio);
 

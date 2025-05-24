@@ -37,7 +37,7 @@ public class UsuarioController {
     private UsuarioRepository repository;
 
     @GetMapping
-    @Cacheable
+    @Cacheable(value = "usuario")
     @Operation(
         summary = "Retorna todos os usuários",
         description = "Retorna todos os usuários cadastrados no sistema, sendo possível paginar e ordenar"
@@ -49,7 +49,7 @@ public class UsuarioController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "usuario")
     public Usuario create(@RequestBody @Valid UsuarioRequest dto) {
         System.out.println( dto);
         log.info("Cadastrando usuário: " + dto.nome());
@@ -75,7 +75,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "usuario")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void destroy(@PathVariable Long id) {
         log.info("Apagando usuário " + id);
@@ -83,7 +83,7 @@ public class UsuarioController {
     }
 
     @PutMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "usuario")
     public Usuario update(@PathVariable Long id, @RequestBody @Valid Usuario usuario) {
         log.info("Atualizando usuário " + id + " " + usuario);
 

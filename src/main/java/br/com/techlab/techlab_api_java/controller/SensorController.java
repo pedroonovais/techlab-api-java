@@ -37,7 +37,7 @@ public class SensorController {
     private SensorRepository repository;
 
     @GetMapping
-    @Cacheable
+    @Cacheable(value = "sensor")
     @Operation(
         summary = "Retorna todos os sensores",
         description = "Retorna todos os sensores cadastrados no sistema, sendo possível paginar e ordenar"
@@ -48,7 +48,7 @@ public class SensorController {
     }
 
     @PostMapping
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "sensor")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(
         responses = @ApiResponse(
@@ -69,7 +69,7 @@ public class SensorController {
     }
 
     @DeleteMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "sensor")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void destroy(@PathVariable Long id) {
         log.info("Apagando sensor " + id);
@@ -77,7 +77,7 @@ public class SensorController {
     }
 
     @PutMapping("{id}")
-    @CacheEvict(allEntries = true)
+    @CacheEvict(allEntries = true, value = "sensor")
     public Sensor update(@PathVariable Long id, @RequestBody Sensor sensor) {
         log.info("Atualizando sensor " + id + " " + sensor);
 
