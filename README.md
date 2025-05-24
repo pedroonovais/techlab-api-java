@@ -16,6 +16,14 @@
 
 ---
 
+# 👩‍💻 Participantes
+
+- Pedro Henrique Mendonça de Novais - RM555276
+- Davi Alves de Lima - RM556008
+- Rodrigo Alcides Bohac Ríos - RM554826
+
+---
+
 ## 🏗 Estrutura do Projeto
 
 - **controller**: Camada de apresentação (REST endpoints)
