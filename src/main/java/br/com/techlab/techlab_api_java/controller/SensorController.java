@@ -11,18 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import br.com.techlab.techlab_api_java.model.Sensor;
+import br.com.techlab.techlab_api_java.model.SensorFilter;
 import br.com.techlab.techlab_api_java.repository.SensorRepository;
+import br.com.techlab.techlab_api_java.specification.SensorSpecfication;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 
 import lombok.extern.slf4j.Slf4j;
@@ -42,9 +47,9 @@ public class SensorController {
         summary = "Retorna todos os sensores",
         description = "Retorna todos os sensores cadastrados no sistema, sendo possível paginar e ordenar"
     )
-    public List<Sensor> index() {
+    public Page<Sensor> index(SensorFilter filter, @PageableDefault(size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
         log.info("Listando todos os sensores");
-        return repository.findAll();
+        return repository.findAll(SensorSpecfication.withFilters(filter), pageable);
     }
 
     @PostMapping
