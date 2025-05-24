@@ -93,7 +93,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Copy",
+					"name": "Update",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -308,14 +308,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/rfid/2",
+							"raw": "localhost:8080/rfid/4",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"rfid",
-								"2"
+								"4"
 							]
 						}
 					},
@@ -327,14 +327,14 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/rfid/11",
+							"raw": "localhost:8080/rfid/5",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"rfid",
-								"11"
+								"5"
 							]
 						}
 					},
@@ -471,14 +471,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/sensor/11",
+							"raw": "localhost:8080/sensor/4",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"sensor",
-								"11"
+								"4"
 							]
 						}
 					},
@@ -605,14 +605,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/patio/2",
+							"raw": "localhost:8080/patio/4",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"patio",
-								"2"
+								"4"
 							]
 						}
 					},
