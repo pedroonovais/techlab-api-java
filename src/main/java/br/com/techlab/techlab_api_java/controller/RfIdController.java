@@ -11,18 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import br.com.techlab.techlab_api_java.model.RfId;
+import br.com.techlab.techlab_api_java.model.RfIdFilter;
 import br.com.techlab.techlab_api_java.repository.RfIdRepository;
+import br.com.techlab.techlab_api_java.specification.RfIdSpecification;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 
 import lombok.extern.slf4j.Slf4j;
@@ -42,9 +47,9 @@ public class RfIdController {
         summary = "Retorna todos os RFIDs",
         description = "Retorna todos os RFIDs cadastrados no sistema, sendo possível paginar e ordenar"
     )
-    public List<RfId> index() {
+    public Page<RfId> index(RfIdFilter filter, @PageableDefault(size = 10, sort = "id", direction = Direction.ASC) Pageable pageable) {
         log.info("Listando todos os RFIDs");
-        return repository.findAll();
+        return repository.findAll(RfIdSpecification.withFilters(filter), pageable);
     }
 
     @PostMapping
