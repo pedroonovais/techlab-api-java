@@ -1,0 +1,65 @@
+az group create --name rg-tech-lab --location brazilsouth
+
+az vm create \
+  --resource-group rg-tech-lab \
+  --name vm-tech-lab \
+  --image almalinux:almalinux-x86_64:9-gen2:9.5.202411260 \
+  --admin-username adm-tech-lab \
+  --admin-password 'SenhaTechLab@12' \
+  --size Standard_B1ms \
+  --output json
+
+
+az vm open-port --resource-group rg-tech-lab --name vm-tech-lab --port 22
+az vm open-port --resource-group rg-tech-lab --name vm-tech-lab --port 8080 --priority 1010
+
+ssh user-patio-vision@ipdavm
+
+sudo dnf update -y
+
+sudo dnf -y install dnf-plugins-core
+
+sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo systemctl start docker
+
+sudo systemctl enable docker
+
+sudo usermod -aG docker adm-tech-lab
+
+newgrp docker
+
+docker version
+
+docker run hello-world
+
+criar Dockerfile:
+# Etapa 1: build da aplicação (usando imagem com Java e Maven)
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
+WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
+
+# Etapa 2: imagem final com JAR pronto
+FROM eclipse-temurin:21-jdk
+WORKDIR /app
+COPY --from=builder /app/target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
+
+no bash: 
+sudo dnf install git -y
+
+git clone https://github.com/pedroonovais/techlab-api-java
+
+docker build -t tech-lab-api .
+
+docker run -d -p 8080:8080 --name container-api tech-lab-api
+
+docker ps
+
+
+
+
